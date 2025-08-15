@@ -37,18 +37,18 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build corpus (scrape)
-        run: python scripts/build_corpus.py
+        run: python Scripts/build_corpus.py
 
       - name: Embeddings + topics
-        run: python scripts/embed_and_topics.py
+        run: python Scripts/embed_and_topics.py
 
       - name: Zero-shot labels (scheduled only)
         if: github.event_name == 'schedule'
-        run: python scripts/zero_shot_labels.py
+        run: python Scripts/zero_shot_labels.py
 
       - name: Summaries (scheduled only)
         if: github.event_name == 'schedule'
-        run: python scripts/summarize.py
+        run: python Scripts/summarize.py
 
       - name: Upload data artifacts
         uses: actions/upload-artifact@v4
