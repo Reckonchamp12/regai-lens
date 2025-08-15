@@ -37,7 +37,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build corpus (scrape)
-   
+        if: false
         run: export PYTHONPATH=$GITHUB_WORKSPACE && python Scripts/build_corpus.py
 
 
