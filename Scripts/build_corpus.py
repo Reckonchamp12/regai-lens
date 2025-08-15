@@ -1,3 +1,6 @@
+CORPUS = "data/corpus.csv"
+
+def main():
 #!/usr/bin/env python
 from pathlib import Path
 import pandas as pd
