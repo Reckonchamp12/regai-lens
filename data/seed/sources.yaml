@@ -1,0 +1,40 @@
+# Curated official regulator URLs that discuss AI/ML. Expand over time.
+
+sources:
+  - country: GB
+    authority: Bank of England
+    urls:
+      - https://www.bankofengland.co.uk/research/ai-public-private-forum
+      - https://www.bankofengland.co.uk/paper/2022/ai-public-private-forum-final-report
+  - country: SG
+    authority: Monetary Authority of Singapore
+    urls:
+      - https://www.mas.gov.sg/development/fintech/responsible-ai/feat-principles
+      - https://www.mas.gov.sg/news/speeches
+  - country: EU
+    authority: European Central Bank
+    urls:
+      - https://www.ecb.europa.eu/press/blog
+      - https://www.ecb.europa.eu/pub
+  - country: US
+    authority: Financial Industry Regulatory Authority (FINRA)
+    urls:
+      - https://www.finra.org/rules-guidance/key-topics/artificial-intelligence
+      - https://www.finra.org/reports/industry/artificial-intelligence-securities-industry
+  - country: CH
+    authority: Swiss Financial Market Supervisory Authority (FINMA)
+    urls:
+      - https://www.finma.ch/en/documentation/dossiers/dossier-artificial-intelligence/
+  - country: IN
+    authority: Reserve Bank of India
+    urls:
+      - https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=21289
+      - https://rbi.org.in/scripts/BS_SpeechesView.aspx
+  - country: CA
+    authority: Office of the Superintendent of Financial Institutions (OSFI)
+    urls:
+      - https://www.osfi-bsif.gc.ca/Eng/fi-if/rai-iar/Pages/ai.aspx
+  - country: AU
+    authority: Australian Securities & Investments Commission (ASIC)
+    urls:
+      - https://asic.gov.au/about-asic/news-centre/articles/
