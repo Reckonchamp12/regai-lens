@@ -1,4 +1,4 @@
-RegAI‑Lens — Multilingual AI Policy Analytics for Financial Regulators
+***RegAI‑Lens — Multilingual AI Policy Analytics for Financial Regulators***
 
 **What it is:** End‑to‑end ML pipeline + app that ingests **official** regulator pages and PDFs related to **AI**, then performs:
 
