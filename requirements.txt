@@ -1,0 +1,28 @@
+# Core
+pandas>=2.2
+numpy>=1.26
+pyyaml>=6.0
+requests>=2.32
+beautifulsoup4>=4.12
+python-dateutil>=2.9
+readability-lxml>=0.8.1
+pdfminer.six>=20240706
+langdetect>=1.0.9
+regex>=2024.7.24
+tqdm>=4.66
+pyarrow>=16.1
+
+# ML & NLP
+sentence-transformers>=3.0.1
+scikit-learn>=1.5
+umap-learn>=0.5.6
+hdbscan>=0.8.38
+transformers>=4.43
+accelerate>=0.33
+torch>=2.3; sys_platform != 'darwin' or platform_machine != 'arm64'
+# If on Apple Silicon, install torch separately per PyTorch instructions.
+
+# App & Viz
+streamlit>=1.36
+plotly>=5.22
+
