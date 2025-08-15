@@ -38,7 +38,7 @@ jobs:
 
       - name: Build corpus (scrape)
    
-        run: export PYTHONPATH=$GITHUB_WORKSPACE python Scripts/build_corpus.py
+        run: export PYTHONPATH=$GITHUB_WORKSPACE && python Scripts/build_corpus.py
 
 
       - name: Embeddings + topics
