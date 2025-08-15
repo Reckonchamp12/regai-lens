@@ -1,6 +1,3 @@
-CORPUS = "data/corpus.csv"
-
-def main():
 #!/usr/bin/env python
 from pathlib import Path
 import pandas as pd
@@ -12,13 +9,15 @@ from src.regailens.scrape import fetch_and_cache, extract_links_from_listing
 from src.regailens.textprep import html_to_text, normalize_text
 from src.regailens.parse_pdf import pdf_to_text
 
+# Output corpus path
 DATA = Path(__file__).resolve().parents[1] / "data"
-OUT = DATA / "corpus.csv"
-
+CORPUS = DATA / "corpus.csv"
 
 def main():
     rows = []
-    sources = read_sources()
+    
+    # Read sources
+    sources = read_sources(DATA / "sources.yaml")
 
     for entry in tqdm(sources, desc="Authorities"):
         country = entry["country"]
@@ -78,12 +77,14 @@ def main():
                     "fetched_at": datetime.utcnow().isoformat(),
                 })
 
+    # Convert to DataFrame and clean
     df = pd.DataFrame(rows)
-    # basic cleanup
     df = df[df["text"].str.len() > 200].reset_index(drop=True)
-    df.to_csv(OUT, index=False)
-    print(f"Saved {len(df)} documents to {OUT}")
-
+    
+    # Save to CSV
+    df.to_csv(CORPUS, index=False)
+    print(f"Saved {len(df)} documents to {CORPUS}")
 
 if __name__ == "__main__":
     main()
+
