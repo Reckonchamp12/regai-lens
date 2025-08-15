@@ -41,6 +41,7 @@ jobs:
         run: PYTHONPATH=$GITHUB_WORKSPACE python Scripts/build_corpus.py
 
       - name: Embeddings + topics
+        if: false  # temporarily disable
         run: PYTHONPATH=$GITHUB_WORKSPACE python Scripts/embed_and_topics.py
 
       - name: Zero-shot labels (scheduled only)
