@@ -9,15 +9,13 @@ from src.regailens.scrape import fetch_and_cache, extract_links_from_listing
 from src.regailens.textprep import html_to_text, normalize_text
 from src.regailens.parse_pdf import pdf_to_text
 
-# Paths
+# Define output path
 DATA = Path(__file__).resolve().parents[1] / "data"
-CORPUS = DATA / "corpus.csv"
-DATA.mkdir(parents=True, exist_ok=True)  # make sure data folder exists
-
+OUT = DATA / "corpus.csv"
 
 def main():
     rows = []
-    sources = read_sources()  # reads sources.yaml / authorities.csv
+    sources = read_sources()
 
     for entry in tqdm(sources, desc="Authorities"):
         country = entry["country"]
@@ -27,7 +25,6 @@ def main():
             if status != 200 or not content:
                 continue
 
-            # HTML page
             if "html" in ctype or url.endswith(("/", ".html", ".htm")):
                 text = html_to_text(content)
                 rows.append({
@@ -39,8 +36,6 @@ def main():
                     "text": normalize_text(text),
                     "fetched_at": datetime.utcnow().isoformat(),
                 })
-
-                # also crawl for likely article/pdf links
                 for link in extract_links_from_listing(content, url)[:20]:
                     s2, c2, ct2, p2 = fetch_and_cache(link)
                     if s2 != 200 or not c2:
@@ -60,8 +55,6 @@ def main():
                         "text": normalize_text(t2),
                         "fetched_at": datetime.utcnow().isoformat(),
                     })
-
-            # direct PDF or other doc
             else:
                 if "pdf" in ctype or url.lower().endswith(".pdf"):
                     text = pdf_to_text(content)
@@ -79,14 +72,11 @@ def main():
                     "fetched_at": datetime.utcnow().isoformat(),
                 })
 
-    # Build DataFrame and filter short texts
     df = pd.DataFrame(rows)
     df = df[df["text"].str.len() > 200].reset_index(drop=True)
-
-    # Save CSV
-    df.to_csv(CORPUS, index=False)
-    print(f"Saved {len(df)} documents to {CORPUS}")
-
+    OUT.parent.mkdir(exist_ok=True)  # make sure 'data/' exists
+    df.to_csv(OUT, index=False)
+    print(f"Saved {len(df)} documents to {OUT}")
 
 if __name__ == "__main__":
     main()
