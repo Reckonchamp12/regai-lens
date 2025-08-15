@@ -1,15 +1,18 @@
-***RegAI‑Lens — Multilingual AI Policy Analytics for Financial Regulators***
+**RegAI‑Lens — Multilingual AI Policy Analytics for Financial Regulators.**
 
-**What it is:** End‑to‑end ML pipeline + app that ingests **official** regulator pages and PDFs related to **AI**, then performs:
+[![CI — Data Refresh](https://github.com/Reckonchamp12/regai-lens/actions/workflows/build.yml/badge.svg)](https://github.com/Reckonchamp12/regai-lens/actions/workflows/build.yml)
 
-- **Scraping** of curated official sources (HTML, PDF)
-- **Text normalization** + language detection
-- **Sentence embeddings** (\*MiniLM, multilingual capable)
-- **Unsupervised topic discovery** (UMAP + HDBSCAN) with interactive scatter
-- **Multilingual zero‑shot classification** (XLM‑RoBERTa XNLI) into AI policy/use‑case labels
-- **Semantic search** and similarity exploration
-- **Auto‑summaries** (optional, light T5) per document
+## Overview  
+RegAI-Lens is an end-to-end AI system for analyzing global regulatory changes in real-time.  
+It scrapes updates from regulatory bodies, cleans and processes the text, generates vector embeddings, applies topic modeling, and visualizes insights via an interactive Streamlit dashboard.  
 
+## Features  
+- **Live Regulatory Data Scraping** — Fetches the latest updates from global regulators.  
+- **Advanced NLP Pipeline** — Cleans, preprocesses, and embeds text using transformer models.  
+- **Topic Modeling** — Clusters regulations into meaningful themes using LDA/BERT.  
+- **Interactive Dashboard** — Streamlit-based UI for filtering, searching, and visualizing changes.  
+- **Automated CI/CD** — GitHub Actions refresh data and deploy updates automatically.  
+- **Containerized** — Runs anywhere with Docker.  
 Deliverable: a beautiful **Streamlit** dashboard showing a UMAP map of documents, filters by regulator/country/use‑case/stage, search, and a right‑pane reader with key metadata, zero‑shot labels, and source link.
 
 ## Demo (local)
