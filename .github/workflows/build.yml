@@ -59,4 +59,4 @@ jobs:
             data/embeds.parquet
             data/labels.csv
             data/summaries.csv
-            data/docs/
+            data/docs
